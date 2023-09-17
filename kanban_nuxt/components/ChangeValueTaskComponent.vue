@@ -7,7 +7,7 @@
   </span>
   <!-- popup to edit the Task values-->
   <div v-if="showPopupEdit" class="pop-edit show-popup py-3">
-    {{ props.idTask }}
+    <!-- {{ props.idTask }} -->
     <p class="text-xl font-semibold">Edit the Task</p>
     <div
       class="flex items-center relative left-[410px] top-[-30px] hover:text-red-500 cursor-pointer"

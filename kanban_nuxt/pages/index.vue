@@ -33,10 +33,6 @@ useHead({
   meta: [{ name: "a kanban board Trello style", content: "My amazing board" }],
 });
 
-// definePageMeta({
-//   middleware: [ "auth" ]
-// })
-
 const showLoginForm = ref(true);
 const showRegisterForm = ref(false);
 

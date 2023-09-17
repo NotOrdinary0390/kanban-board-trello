@@ -60,7 +60,7 @@ const loadTrashTasks = () => {
       tasksT.value = response.data.filter((task) => {
         return task.trash === true;
       });
-      console.log(tasksT.value);
+      //console.log(tasksT.value);
     })
     .catch((error) => {
       console.error("Error in fetching columns:", error);
@@ -69,7 +69,7 @@ const loadTrashTasks = () => {
 
 //function from useAppStore to delete a task definitively
 const deleteTrashTask = (taskId) => {
-  console.log(taskId);
+  //console.log(taskId);
   useAppStore()
     .deleteTask(taskId)
     .then(() => {

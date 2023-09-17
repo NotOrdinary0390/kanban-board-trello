@@ -29,7 +29,7 @@ export const useAppStore = defineStore('AppStore', {
           password: password
         })
           .then(response => {
-            console.log(response.data);
+            //console.log(response.data);
             this.successMessage = "Registration successfull";
             alert(this.successMessage);
           })
@@ -78,12 +78,12 @@ export const useAppStore = defineStore('AppStore', {
         // Make a POST request to JSON Server
         return axios.post('http://localhost:3000/columns', newCol)
           .then(response => {
-            console.log('New column created:', response.data);
+            //console.log('New column created:', response.data);
             // Update the list of columns
             this.columnList.push(response.data);
           })
           .catch(error => {
-            console.error('Error creating column:', error);
+            //console.error('Error creating column:', error);
           });
       }
     },
@@ -93,10 +93,10 @@ export const useAppStore = defineStore('AppStore', {
       // Effettua una richiesta DELETE a JSON Server
       return axios.delete(`http://localhost:3000/columns/${columnId}`)
         .then(response => {
-          console.log('Colonna eliminata con successo:', response.data);
+          //console.log('Colomn deleted successfull:', response.data);
         })
         .catch(error => {
-          console.error('Errore durante l\'eliminazione della colonna:', error);
+          console.error('Error:', error);
         });
     },
 
@@ -115,7 +115,7 @@ export const useAppStore = defineStore('AppStore', {
         // Make a POST request to JSON Server
         return axios.post('http://localhost:3000/tasks', newTask)
           .then(response => {
-            console.log('New task created:', response.data);
+            //console.log('New task created:', response.data);
             // You can update the task list or perform other operations here
           })
           .catch(error => {
@@ -143,7 +143,7 @@ export const useAppStore = defineStore('AppStore', {
           // Make a PUT request to update the task in JSON Server
           const putResponse = await axios.put(`http://localhost:3000/tasks/${idTask}`, taskToUpdate);
 
-          console.log(`Task with ID ${idTask} updated successfully:`, putResponse.data);
+          //console.log(`Task with ID ${idTask} updated successfully:`, putResponse.data);
         } else {
           console.error(`Task with ID ${idTask} not found`);
         }
@@ -169,7 +169,7 @@ export const useAppStore = defineStore('AppStore', {
             // Make a PUT request to update the task in JSON Server
             axios.put(`http://localhost:3000/tasks/${taskId}`, taskToUpdate)
               .then(response => {
-                console.log('Task updated successfully:', response.data);
+                //console.log('Task updated successfully:', response.data);
               })
               .catch(error => {
                 console.error('Error updating task:', error);

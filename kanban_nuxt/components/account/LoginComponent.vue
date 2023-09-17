@@ -42,7 +42,7 @@ const handleLogin = () => {
             router.push( { path: "/board" })
             }, 2000 )
     })
-    console.log(email.value, password.value);
+    //console.log(email.value, password.value);
 }
 </script>
 <style></style>

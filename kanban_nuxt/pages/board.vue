@@ -74,10 +74,10 @@ const loadColumns = () => {
     .then((response) => {
       columns.value = response.data;
       columnsLoaded.value = true;
-      console.log(columns.value);
+      //console.log(columns.value);
     })
     .catch((error) => {
-      console.error("Errore nella richiesta delle colonne:", error);
+      console.error("Error:", error);
     });
 };
 

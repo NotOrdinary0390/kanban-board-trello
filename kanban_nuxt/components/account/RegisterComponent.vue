@@ -38,7 +38,7 @@ const password = ref("");
 
 const handleRegister = () => {
     useAppStore().registerUser(email.value, password.value)
-    console.log(email.value, password.value);
+    //console.log(email.value, password.value);
     email.value = "";
     password.value = "";
 }
