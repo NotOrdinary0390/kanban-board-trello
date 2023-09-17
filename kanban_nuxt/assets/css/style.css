@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-image: url('../img/bg-trello.jpeg');
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-app {
+    /* border: 1px solid white ; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.4em;
+    box-sizing: border-box;
+}
+
+.title-colum {
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    font-family: 'Caveat', cursive;
+}
+
+/* Account CSS style  */
+
+.form-container {
+    border: 1px solid #fff;
+    background-color: #4e4d4e56;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.input-form {
+    padding: 0.3em 1em 0.3em 1em;
+    height: 50px;
+    border-radius: 10px;
+}
