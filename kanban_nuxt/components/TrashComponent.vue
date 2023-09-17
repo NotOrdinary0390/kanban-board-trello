@@ -76,6 +76,11 @@ const deleteTrashTask = (taskId) => {
       loadTrashTasks();
     });
 };
+
+// Expose the function to external calls
+defineExpose({
+  loadTrashTasks
+})
 </script>
 
 <style scoped>

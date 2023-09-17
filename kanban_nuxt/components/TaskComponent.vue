@@ -124,6 +124,7 @@ const handleMoveToTrash = (taskId, taskBody) => {
     .moveToTrash(taskId, taskBody)
     .then(() => {
       loadTasks();
+      emit('refreshTrash');
     });
   showPopupTrash.value = !showPopupTrash.value;
 };
@@ -137,6 +138,8 @@ const onDragStart = (event, taskId) => {
   //console.log("idTaskStart: " + taskId);
   //console.log("idColStart: " + columnId);
 };
+
+const emit = defineEmits(['refreshTrash']);
 </script>
 
 <style scoped>

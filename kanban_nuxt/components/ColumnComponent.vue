@@ -20,7 +20,7 @@
       </button>
     </div>
     <div class="w-full h-1 border border-black mb-3"></div>
-    <TaskComponent :columnId="props.id" />
+    <TaskComponent :columnId="props.id" @refreshTrash="refreshTrash"/>
   </div>
 </template>
 <script setup>
@@ -56,6 +56,12 @@ const onDrop = (event) => {
   // Use the Appstore to update the task's columnId
   useAppStore().updateTaskColumnId(taskId, props.id);
 };
+
+const refreshTrash = () => {
+  emit('refreshTrash');
+}
+
+const emit = defineEmits(['refreshTrash']);
 </script>
 <style scoped>
 .shadow-col {

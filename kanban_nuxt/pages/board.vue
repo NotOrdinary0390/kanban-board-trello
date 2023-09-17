@@ -1,5 +1,5 @@
 <template>
-  <TrashComponent />
+  <TrashComponent ref="trash"/>
 
   <div class="div-input px-1 py-3 ml-8 mt-5">
     <form @submit.prevent="addColumn" class="flex px-2">
@@ -32,6 +32,7 @@
           :title="column.title"
           :id="column.id"
           :loadColumns="loadColumns"
+          @refreshTrash="refreshTrash"
         />
       </template>
     </draggable>
@@ -49,6 +50,7 @@ definePageMeta({
 
 const newColTitle = ref("");
 const columns = ref([]);
+const trash = ref(null)
 let columnsLoaded = ref(false);
 
 onMounted(() => {
@@ -57,9 +59,12 @@ onMounted(() => {
 
 //function from useTaskStore to add new column
 const addColumn = () => {
-  useAppStore().createColumn(newColTitle.value);
+  useAppStore()
+    .createColumn(newColTitle.value)
+    .then(() => {
+      loadColumns();
+    });
   //console.log(newColTitle.value);
-  loadColumns();
   newColTitle.value = "";
 };
 
@@ -74,6 +79,10 @@ const loadColumns = () => {
     .catch((error) => {
       console.error("Errore nella richiesta delle colonne:", error);
     });
+};
+
+const refreshTrash = () => {
+  trash.value.loadTrashTasks();
 };
 </script>
 <style scoped>

@@ -76,7 +76,7 @@ export const useAppStore = defineStore('AppStore', {
         };
 
         // Make a POST request to JSON Server
-        axios.post('http://localhost:3000/columns', newCol)
+        return axios.post('http://localhost:3000/columns', newCol)
           .then(response => {
             console.log('New column created:', response.data);
             // Update the list of columns
@@ -184,11 +184,11 @@ export const useAppStore = defineStore('AppStore', {
     //Move the Task to the Trash
     moveToTrash(taskId, taskBody) {
       return axios.put(`http://localhost:3000/tasks/${taskId}`, {
+        id: taskId,
         columnId: "",
         priority: "none",
         body: taskBody,
-        trash: true,
-        id: taskId
+        trash: true
       })
         .then(response => {
           alert(`Task with ID ${taskId} moved to trash successfully`);
@@ -206,7 +206,7 @@ export const useAppStore = defineStore('AppStore', {
           console.log(`Task with ID ${taskId} successfully deleted`);
           // update the local state after deletion
           this.taskList = this.taskList.filter(task => task.id !== taskId);
-          console.log(response)
+          // console.log(response)
         })
         .catch(error => {
           // If an error occurs during the deletion, log an error message
